@@ -20,7 +20,25 @@ box-shadow: 2px 2px 5px #b0bec5;
 body {
     color: #263238;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eceff1;
+    line-height: 1.5;
 }
+
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 
 /* Typography */
 
@@ -28,15 +46,131 @@ h1 {
     font-size: 3rem;
     font-weight: 300;
     line-height: 1.2;
+    text-align: center;
+    margin: 1.5rem 0;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+    color: #263238;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+a {
+    color: #00acc1;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+
 /* Main Content */
+
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    gap: 1rem;
+    margin-bottom: 2rem; 
+}
+
+.flex-container article {
+    background-color: #ffffff;
+    border: 1px solid #b0bec5;
+    box-shadow: 2px 2px 5px #b0bec5;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container article:first-child img {
+    width: 100%;
+    height: auto;
+}
+
+.flex-container article:not(:first-child) img {
+    width: 100%;
+    height: auto;
+}
+
+.card-copy {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 
 /* Footer */
 
 footer * {
     font-size: 0.825em;
     text-align: center;
+    margin: 0 auto;
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+footer h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Media Queries */
+
+@media screen and (min-width: 640px) {
+    .flex-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+.flex-container article:first-child {
+        flex: 1 1 100%;
+        flex-direction: row;
+        height: auto;
+    }
+    .flex-container article:first-child img {
+        flex: 1 1 50%;
+        object-fit: cover;
+    }
+    .flex-container article:first-child .card-copy {
+        flex: 1 1 50%;
+    }
+
+    .flex-container article:not(:first-child) {
+        flex: 1 1 calc((100% / 2) - (1rem / 2));
+    }
+
+    @media screen and (min-width: 840px) {
+    .flex-container article:first-child {
+        flex: 1 1 100%;
+    }
+
+    
+    .flex-container article:not(:first-child) {
+        flex: 1 1 calc((100% / 3) - (2rem / 3));
+    }
+}
+
+@media screen and (min-width: 1040px) {
+    .flex-container article:not(:first-child) {
+        flex: 1 1 calc((100% / 4) - (3rem / 4));
+    }
+}
